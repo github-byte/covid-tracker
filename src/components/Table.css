@@ -1,0 +1,19 @@
+.Table{
+    margin-top:20px;
+    overflow-y:scroll;
+    height:400px;
+    scroll-behavior: smooth;  
+}
+
+.Table tr{
+    display:flex;
+    justify-content: space-between;
+    padding:0.5rem;
+}
+.Table td{
+    padding:0.5;
+}
+
+.Table tr:nth-child(odd){
+    background-color:#f3f2f8;
+}
