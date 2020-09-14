@@ -1,0 +1,40 @@
+.toolbar{
+    width:70%;
+    max-width: 400px;
+    height:100%;
+    position: fixed;
+    top:0;
+    margin-left:-30px;
+    z-index: 2;
+    background-color:rgb(15,23,36,0.9);
+
+    box-shadow: 2px 0px 5px black;
+}
+
+.toolbar__logo{
+    margin: 10%;
+    top:10%;
+    text-decoration:none;
+    text-align: start;
+    background-color: rgb(64, 224, 208,0.8);
+    color:rgb(15,23,36);
+}
+a{
+    text-decoration:none;
+    color:whitesmoke;
+    font-family: 'Nunito';
+    font-size:1.5rem
+}
+li{
+    line-height: 2;
+    list-style-type: none;
+    text-align:left;
+    font-size: 1.5rem;
+    /* border-bottom: 1px solid #80ffdb; */
+}
+li:hover{
+    border-bottom:2px dotted #80ffdb;
+    margin-left:-20px;
+    color:#80ffdb;
+
+}

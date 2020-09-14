@@ -1,26 +1,183 @@
+/* * {
+    margin: 0;
+  }
+
 body{
     background-color: rgb(250,250,250);
     font-family: sans-serif;
-   margin-left: 30px;
+
 }
-.app__left
-{
-    display:block
+.app__header{
+    display:flex;
+    justify-content: space-between;
 }
 
 .app__stats{
     display:flex;
-    justify-content: space-around;
-        text-align:center
+    justify-content: space-between;
+    text-align:center
 }
 
-.App{
+.app{
     display:flex;
-    justify-content: space-between;
-   
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f5f6fa;
+    padding: 20px;
 }
 @media only screen and (max-width: 990px) {
-    .app__right{
+    .app{
         flex-direction: column;
+        text-align: center;
+    }
+  } */
+.loader{
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+
+}
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+  
+  * {
+    margin: 0;
+    
+  }
+
+  .fas{
+    color:#80ffdb;
+    font-size: 3rem;
+    cursor: pointer;
+    marker: inherit;
+
+  }
+  .fa-bars:before{
+    position: fixed;
+    z-index: 2;
+  }
+.fas:hover{
+  color:skyblue;
+  box-shadow: 0px 0px 3px 3px  white;
+}
+
+/* .drawer{
+  width:70px;
+  height: 100%;
+} */
+.MuiMenu-list
+{
+background-color: #24364E;
+color:#80ffdb;
+border-radius:12px;
+}
+.MuiMenu-paper::-webkit-scrollbar{
+  background-color: #024366;
+}
+
+
+  .left{
+    position:absolute;
+    width:50px;
+    height:100%;
+
+  }
+  body {
+    background-color: #f5f6fa;
+    font-family: 'Nunito';
+    text-align: center;
+  }
+  
+  .app {
+    display: flex;
+    justify-content: space-between !important ;
+    background-color: rgb(15,23,36);
+    padding: 20px;
+  
+  }
+  
+  .app__dropdown {
+    background-color: #7796C2;
+    border-radius: 12px;
+  }
+  .right_div{
+    background-color:#24364E;
+  }
+  
+  .app__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+  
+  .app__header > h1 {
+    color: #80ffdb;
+    font-size: 2rem;
+   
+  }
+  
+  .app__stats {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .MuiCardContent-root 
+  {
+    background-color: #24364E;
+  }
+
+.globe .globe2{
+  background-color: #24364E;
+
+}
+.globe{
+  height:500px;
+}
+  .app__left {
+    flex: 0.9;
+    
+  }
+  .app__right{
+    width:510px;
+  }
+ 
+  
+  .app__information > h3 {
+    color: #7796C2;
+    background-color: #024366;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .app__information > h3:last-of-type {
+    margin-top: 1rem;
+  }
+  /* svg {
+    display: inline-block;
+    vertical-align: middle;
+  }
+   */
+  @media (max-width: 990px) {
+    .app {
+      flex-direction: column;
     }
   }
+
+
+
+
+
