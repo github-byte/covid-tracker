@@ -3,7 +3,7 @@ import Button from "./ToggleButton/Button"
 import "./common.css"
 import "./styles.css"
 import Globe from "./MapChart"
-import ComboBox from "./ComboBox"
+import ComboBox from "./Toolbar/ComboBox"
 
 import Linegraph from "./LineGraph"
 
@@ -18,6 +18,7 @@ function Statistics() {
         
         await fetch(url).then(response=>response.json()).then(data=>{setcountryInfo(data);
             setCountry(countryCode);
+
         });
     
       
@@ -34,7 +35,7 @@ function Statistics() {
        {/* <p style={{color:"white"}}>{country}</p> */}
        {/* <img src={countryInfo} alt="Map"/> */}
        
-       <div style={{height:"500px",width:"500px"}}>  <Linegraph/></div>
+       {/* <div style={{height:"500px",width:"500px"}}>  <Linegraph/></div> */}
        <div  className="globe2"><Globe/></div>
    </div>);
    

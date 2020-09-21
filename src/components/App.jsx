@@ -115,7 +115,7 @@ function Yes(){
   
     <div className="app">
     <div><Button/></div>
-    {/* <div><Example/></div> */}
+   
     <div className="app__left" >
    
     <div className="app__header">

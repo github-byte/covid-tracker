@@ -9,7 +9,7 @@ export default function Helpline() {
 <div className="button">
    <Button/></div>
        <h1 className="heading">Helpline</h1>
-       
+       <input/>
    </div>);
 }
 
