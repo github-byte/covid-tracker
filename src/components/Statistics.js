@@ -30,22 +30,12 @@ function Statistics() {
    </div>
 
        <h1 className="heading">Statistics</h1>
-       <h2>Enter Country</h2>
-       <ComboBox   />
-       {/* <p style={{color:"white"}}>{country}</p> */}
-       {/* <img src={countryInfo} alt="Map"/> */}
-       
-       {/* <div style={{height:"500px",width:"500px"}}>  <Linegraph/></div> */}
-       <div  className="globe2"><Globe/></div>
+       <ComboBox />
+       {/* <div  className="globe2"><Globe/></div> */}
    </div>);
    
 }
 export default Statistics;
- //search
-   //dropdown
-       //country name country flag
-       //dotted graph
-       //pie MapChart
-       //bar graph
+
 
 

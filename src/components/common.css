@@ -40,6 +40,31 @@ body{
       height:500px;
       width:500px;
       border-radius: 12px;
-      margin-left: 35%;
+      /* margin-left: 35%; */
       display: flex;
   }
+.news:hover{
+    color:white;
+    background-color: honeydew;
+    box-shadow: 2px 8px 8px white;
+}
+  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
+    padding: 20px;
+    margin-left:20px;
+    width:80px;
+    background-color: rgb(15,23,36);
+    float:center;
+}
+.carousel .slide{
+    background-color:rgb(15,23,36)!important ;
+}
+.control-arrow{
+    margin-left:80px !important;
+}
+.control-dots{
+    padding-top: 200px !important;
+}
+li{
+    line-height: 2 !important;
+    font-size: large !important;
+}

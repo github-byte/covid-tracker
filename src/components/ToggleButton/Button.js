@@ -12,7 +12,7 @@ function Button()
    return(
 <div >
 
-    <i class="fas fa-bars" onClick={click} >
+    <i class="fas fa-bars" onClick={click} style={{position:'absolute',top:'32px',left:'10px'}}>
         {state?<Toolbar/>:null}
     </i>
     

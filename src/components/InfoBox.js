@@ -1,10 +1,12 @@
 import React,{useState} from 'react'
 import {Card,CardContent,Typography} from "@material-ui/core"
 import "./InfoBox.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee, faVirus,faLungsVirus, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import numeral from "numeral"
 
 
-
-function InfoBox({title,cases,total,active,isRed,...props})
+function InfoBox({title,cases,icon,total,active,isRed,...props})
  
 {
     return (
@@ -12,6 +14,7 @@ function InfoBox({title,cases,total,active,isRed,...props})
         onClick={props.onClick}
         className={`infoBox ${active && "infoBox--selected"} ${ isRed && "infoBox--red"}`} >
         <CardContent>
+           <FontAwesomeIcon icon={icon} style={{fontSize:'3rem',color:"#80ffdb"}}></FontAwesomeIcon>
           <Typography color="textSecondary" gutterBottom style={{color:"#80ffdb"}}>
             {title}
           </Typography>
@@ -19,7 +22,7 @@ function InfoBox({title,cases,total,active,isRed,...props})
             {cases}
           </h2>
           <Typography className="infoBox__total" color="#80ffdb">
-            {total} Total
+            {numeral(total).format("0,0")} Total
           </Typography>
         </CardContent>
       </Card>

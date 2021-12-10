@@ -44,8 +44,7 @@ const MapChart = ({setTooltipContent}) => {
       projectionConfig={{
         rotate: [-10, 0, 0],
         scale: 147
-      }}   data-tip="" 
-    >
+      }}   data-tip="" >
     
       <Sphere stroke="#80ffdb" strokeWidth={0.5} />
       <Graticule stroke="#80ffdb" strokeWidth={0.5} />
@@ -54,9 +53,7 @@ const MapChart = ({setTooltipContent}) => {
           {({ geographies }) =>
             geographies.map((geo,index) => {
               const d = data.find(s => s.countryInfo.iso3 === geo.properties.ISO_A3);
-  
-              // const country=data;
-              // const cases=data.cases;
+                
               return (
                 <Geography
                   key={geo.rsmKey+index}
@@ -65,7 +62,7 @@ const MapChart = ({setTooltipContent}) => {
                 onMouseEnter={() => {
                     console.log(d);
           setTooltipContent=`${geo.properties.NAME} ${"Cases"}  ${rounded(d.cases)}  ${rounded(d.recovered)} `}}
-
+                  
                  
                  onMouseLeave={() => {
                    setTooltipContent=("");
@@ -79,6 +76,7 @@ const MapChart = ({setTooltipContent}) => {
                   outline: "none"
                 }}}
                 />
+                
               );
             })
           }

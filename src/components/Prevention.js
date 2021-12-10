@@ -2,10 +2,15 @@ import React,{useState,useEffect} from 'react'
 import "./common.css"
 import Button from "./ToggleButton/Button"
 import {Card,CardContent,Typography,Link,Grid} from "@material-ui/core"
-function Prevention() {
+import {Carousel} from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
+
+
+function Prevention() {
    const [news, setNews] = useState([])
    const [showLoading, setShowLoading] = useState(true);
+   
 
  
    useEffect(() => {
@@ -24,27 +29,32 @@ function Prevention() {
 
 const text=news['articles'];
   let array=[];
-  let img=[];
-  let heading=[]
    for(let i in text){
       console.log(text[i].description)
       array.push(text[i]);
-   // array.push(text[i].description);
-   // img.push(text[i].urlToImage);
-   // heading.push(text[i].title);
    }
-console.log(array);
+console.log(array)
+const responsive = {
+   superLargeDesktop: {
+     // the naming can be any, depends on you.
+     breakpoint: { max: 4000, min: 3000 },
+     items: 5
+   },
+   desktop: {
+     breakpoint: { max: 3000, min: 1024 },
+     items: 3
+   },
+   tablet: {
+     breakpoint: { max: 1024, min: 464 },
+     items: 2
+   },
+   mobile: {
+     breakpoint: { max: 464, min: 0 },
+     items: 1
+   }
+ };
 
-
-function Heading(){
-
-  
-}
-
-
-
-
-
+   
    return(
           <div>
     {/* <i class="fas fa-hands-wash "></i> */}
@@ -72,63 +82,56 @@ function Heading(){
     <h2>Avoid Contact</h2>
 </CardContent>
 </Card>
-<div>NEWS</div>
-<div style={{backgroundImage:`url${img}`,height:'120px'}}>nnn</div>
-{/* <img src=`${img}` alt="img"/> */}
+<hr style={{height:"1px",border:"1px solid turquoise",marginTop:"70px",marginBottom:"30px"}}></hr>
+<div style={{textAlign:"left",position:"relative"}}><h2>TOP NEWS</h2></div>
 
-{/* <div>{array} <br/> </div> */}
-{/* {
-   heading.map((e)=>{
-      return(<Card style={{width:"200px",height:"500px",textAlign:"center",float:"center"}}>
-      <CardContent>{e}
-     
-      
-      </CardContent>
-      </Card>)
-      })
-     
-} */}
+<div style={{display:"flex",width:"50px"}}>
 
-{
-         array.map((e)=>{
+<Carousel responsive={responsive} interval={3000} infiniteLoop={true} centerMode={true} autoPlay={true} stopOnHover={true}>
+
+  {         array.map((e,i)=>{
             
             return(
                
-               <Grid container spacing={5}>
-               <Grid item xs={3}>
-               <Card className="news">
+<Grid  container spacing={5}>
+               <Grid item xs={6} sm={3}>   
+               <Card className="news">   
                <CardContent style={{display:"flex"}}>
                
             <div >
+            <p style={{textAlign:"right",color:"white",fontSize:"10px"}}>Source:{e.source.name}</p>
             <div className="news-flag"style={{backgroundImage:`url(${e.urlToImage})`}}></div>
+         
+            <h4 style={{color:"white"}}>{e.title}</h4>
             
-            <h2 style={{color:"white"}}>{e.title}</h2>
-            
-            <div style={{color:"turquoise"}}>{e.description}</div>
-            <div><Link href="#">More</Link></div>
+            <div style={{color:"turquoise",height:"170px"}} >{e.description}</div>
+            <div><a href={e.url} target="_blank" rel="noopener noreferrer">Read More</a></div>
             </div>
             </CardContent>
             </Card>
             </Grid>
-            </Grid>);
-         })
+            </Grid>
+           
+            //
+            );
+            
+            
+         } )
+        
       }
-
-
-
-{/* {
-   img.map((e)=>{
-         return(<div style={{backgroundImage: `${e}`,width:"200px",height:"200px"}}>
-         <img src=`${e}`/>
-         </div>);
-      })
-} */}
-{/* <heading/>
-<pic/>
-<description/> */}
-
-
+      </Carousel>
+      
+      </div>
+      
+     {/* <Carousel responsive={responsive}>
+        <div style={{backgroundColor:"yellow"}}>item1</div>
+        <div style={{backgroundColor:"white"}}>item2</div>
+        <div style={{backgroundColor:"yellow"}}>item1</div>
+        <div style={{backgroundColor:"white"}}>item2</div>
+     </Carousel> */}
 </div>
+
+
 
 
    );

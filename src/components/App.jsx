@@ -15,7 +15,6 @@ import {
   Link,
   useRouteMatch
 } from "react-router-dom";
-import Helpline from "./Helpline"
 import Prevention from "./Prevention"
 import  Statistics from "./Statistics"
 import Map from "./Map"
@@ -23,8 +22,13 @@ import Globe from "./globe"
 import "../../node_modules/leaflet/dist/leaflet.css"
 import Button from "./ToggleButton/Button"
 import Toolbar from "./Toolbar/Toolbar"
-import Example from "./example/Example";
+import { lightThemeApp,darkThemeApp } from "./style";
+import ReactDOM from 'react-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Graph from './Graph'
+import { faCoffee, faVirus,faLungsVirus, faSpinner, faSkullCrossbones, faWalking } from '@fortawesome/free-solid-svg-icons'
 
+export const ThemeContext=React.createContext();
 
 
 
@@ -34,12 +38,17 @@ function Home() {
     const[countryInfo,setcountryInfo]=useState([])                  //array having total count of worldwide cases
     const[tabledata,setTabledata]=useState([])                      //object of array of all 
     const[mapCenter,setmapCenter]=useState({lat: 34.80746, lng: -40.4796 })
-    const [mapZoom,setmapZoom]=useState(3)
+    const [mapZoom,setmapZoom]=useState(2)
     const [casesType, setCasesType] = useState("");
   const[mapCountries,setmapCountries]=useState([])
   const [clicked,setClicked]=useState(true)
   const[button,setButton]=useState(false)
-  const [drawer,setDrawer]=useState(false)
+
+
+  const [ans,setTheme]=useState(true)
+
+
+
 useEffect(()=>
      {fetch("https://disease.sh/v3/covid-19/all").then(response=>response.json())
      .then(data=>setcountryInfo(data))} ,[])
@@ -82,7 +91,7 @@ useEffect(()=>
    const countryChange=async(event)=>
   {
     const countryCode=event.target.value
-   
+  
    const url=
    (countryCode==='Worldwide'?"https://disease.sh/v3/covid-19/all":`https://disease.sh/v3/covid-19/countries/${countryCode}`)
 
@@ -94,10 +103,7 @@ useEffect(()=>
     });
 
   }
-function Red(){
-    console.log("click")  
-    setClicked(!clicked);
-}
+
     
 
 function Yes(){
@@ -110,17 +116,27 @@ function Yes(){
   setTabledata(sortedData)
 }
 
+    function toggleBut(){
+      setTheme(prevVal=>!prevVal)
+    }
+
+         
+
   return (
+      <ThemeContext.Provider value={ans}>
     <div>
+    <div className="header">
+    <h1>C<span className="virus" style={{transform:'rotate(10)'}}><FontAwesomeIcon icon={faVirus} ></FontAwesomeIcon></span>VID 19</h1>
   
-    <div className="app">
+    </div>
+    <div className="app" style={ans?lightThemeApp:darkThemeApp}>
+    {/* <button onClick={toggleBut} style={{position:'absolute',display:'block'}}>Button</button> */}
     <div><Button/></div>
-   
+
     <div className="app__left" >
    
     <div className="app__header">
 
-      <h1>Covid 19 tracker</h1>
   <FormControl className="app__dropdown">
         <Select variant="outlined"  value={country} onChange={countryChange}>
        <MenuItem value="Worldwide">Worldwide</MenuItem>
@@ -131,17 +147,17 @@ function Yes(){
        </div>
     
    <div  className="app__stats" >
-   <i class="far fa-lungs-virus"></i>
                 <InfoBox   isRed active={casesType==="cases"}
                 title="Coronavirus cases" 
                 onClick={(e)=>setCasesType("cases")}
+                icon={faLungsVirus}
                 cases={countryInfo.todayCases}   
                  total={countryInfo.cases} />
                 
                 <InfoBox  active={casesType==="recovered"} 
                 className={clicked?"isGreen":null} title="Recovered" 
                  onClick={(e)=>setCasesType("recovered")}
-               
+               icon={faWalking}
                 cases={countryInfo.todayRecovered }       
                  total={countryInfo.recovered}    />
                 
@@ -149,6 +165,7 @@ function Yes(){
                 isRed active={casesType==="deaths"} 
                 title="Deaths" 
                  onClick={(e)=>(setCasesType("deaths"))}
+                 icon={faSkullCrossbones}
                 cases={(countryInfo.todayDeaths) }               
                  total={countryInfo.deaths}      />
                  </div>
@@ -160,15 +177,17 @@ function Yes(){
    <Card className="app__right">
    <CardContent>
 <h3 style={{color:"#7796C2"}}>Live Cases </h3>
-<i class="fas fa-angle-double-down" onClick={Yes}></i>
+<i class="fas fa-angle-double-down" onClick={Yes} ></i>
 <Table  countries={tabledata}/>
 <h3>Worldwide</h3>
    </CardContent>
    </Card>
+    <Graph></Graph>
+    <a href="./statistics">More</a>
    </div>
    </div>
-   <div  className="globe">Login for</div>
 </div>
+</ThemeContext.Provider>
 
   );
   
@@ -182,7 +201,6 @@ function App(){
     <Route path="/" exact component={Home}/>
     <Route path="/statistics" component={Statistics}/>
     <Route path="/prevention" component={Prevention}/>
-    <Route path="/helpline" component={Helpline}/>
     </div>
     </Switch>
     </div>
