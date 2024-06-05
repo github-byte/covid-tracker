@@ -30,35 +30,29 @@ body{
     background-color: white;
     color:rgba(250,250,250,1);
 } */
-.news-flag {
+ .news-flag {
     height: 200px;
     width: 100%;
     background-size: cover;
     border-radius: 8px;
   }
-  .news{
-      height:500px;
-      width:500px;
-      border-radius: 12px;
-      /* margin-left: 35%; */
-      display: flex;
-  }
+
+.news{
+    width:calc(100vw - 16px);
+    border-radius: 12px;
+    display: flex;
+} 
+
 .news:hover{
     color:white;
-    background-color: honeydew;
+    transform: scale(1.5) ;
     box-shadow: 2px 8px 8px white;
 }
-  .MuiGrid-spacing-xs-5 > .MuiGrid-item {
-    padding: 20px;
-    margin-left:20px;
-    width:80px;
-    background-color: rgb(15,23,36);
-    float:center;
-}
 .carousel .slide{
-    background-color:rgb(15,23,36)!important ;
+    background-color:rgb(15,23,36) !important ;
 }
-.control-arrow{
+ 
+/* .control-arrow{
     margin-left:80px !important;
 }
 .control-dots{
@@ -67,4 +61,7 @@ body{
 li{
     line-height: 2 !important;
     font-size: large !important;
+} */
+.slide{
+    min-width: 40% !important;
 }

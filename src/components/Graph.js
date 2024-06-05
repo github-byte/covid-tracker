@@ -106,6 +106,7 @@ console.log(setter(23000));
 
       <div >
       <Line
+        width={'800px'}
         data={state0}
         options={{
           title:{

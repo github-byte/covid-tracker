@@ -36,23 +36,15 @@
     position: fixed;
     z-index: 2;
   }
-.fas:hover{
-  color:skyblue;
-  box-shadow: 0px 0px 3px 3px  white;
-}
 
 /* .drawer{
   width:70px;
   height: 100%;
 } */
 
-
-.header{
+/* .header{
   height:100%;
-
-}
-
-
+} */
 
 .MuiMenu-list
 {
@@ -140,11 +132,10 @@ border-radius:12px;
     flex: 0.9;
     
   }
-  .app__right{
+  /* .app__right{
     width:510px;
-  }
+  } */
  
-  
   .app__information > h3 {
     color: #7796C2;
     background-color: #024366;
@@ -183,4 +174,7 @@ border-radius:12px;
   }
 
 
-
+  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  background-color: #24364E;
+  color: #F6F6F7;
+}

@@ -10,7 +10,7 @@ function InfoBox({title,cases,icon,total,active,isRed,...props})
  
 {
     return (
-        <Card
+        <Card style={{width:'20%'}}
         onClick={props.onClick}
         className={`infoBox ${active && "infoBox--selected"} ${ isRed && "infoBox--red"}`} >
         <CardContent>

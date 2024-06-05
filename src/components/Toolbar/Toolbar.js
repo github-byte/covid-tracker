@@ -23,9 +23,6 @@ export default function Toolbar () {
             Prevention
           </li>
           </Link>
-          <Link to="/Helpline">
-          <li>Helpline</li>
-          </Link>
         </ul>
       </div>
       </div>
